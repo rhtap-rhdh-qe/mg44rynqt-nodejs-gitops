@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: mg44rynqt-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: mg44rynqt-nodejs 
+  name: mg44rynqt-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: mg44rynqt-nodejs
+    weight: 100 
